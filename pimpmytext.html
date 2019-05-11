@@ -3,17 +3,60 @@
 	<head>
 		<title>Pimp My Text!</title>
 		<link href="pimpmytext.css" rel="stylesheet" type="text/css" />
-		<!-- link to your script file here -->
 
 	</head>
+<script>
+	window.onload = function()
+{
+    let mainTextArea = document.querySelector('#mainTextArea');
 
+    function makeBigger()
+    {
+        mainTextArea.style.fontSize = '24pt';
+    }
+
+    function applyStyles(e)
+    {
+        if(e.target.checked){
+            mainTextArea.classList.add('styled');
+        }else{
+            mainTextArea.classList.remove('styled');
+        }
+    }
+
+    function snoopify()
+    {
+        mainTextArea.value = mainTextArea.value.toUpperCase().split('.').join('-izzle.');
+    }
+
+    document.querySelector('#bigger').onclick = makeBigger;
+    document.querySelector('#applyStyles').onclick = applyStyles;
+    document.querySelector('#snoopifier').onclick = snoopify;
+}
+
+
+</script>
 	<body>
-		<h1>Pimp My Text</h1>
-		<div>
-			<img src="geek.jpg" alt="Pimpin' it, geek!" />
-		</div>
+	<img src="geek.jpg" alt="snoopy" />
 
-		<!-- Your UI controls go here -->
+		<form action="">
+			<fieldset>
+				<legend>Text</legend>
+				<textarea name="" id="mainTextArea" cols="30" rows="4"></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Pimpification</legend>
+				<button type="button" id="bigger">Bigger Pimpin!</button>
+				<br>
+				<input type="checkbox" name="" id="applyStyles"> Bling
+				<br>
+				<button type="button" id="snoopifier">Snoopify</button>
+			</fieldset>
+		</form>
 
+
+		
+
+		<!-- <script src="pimpmytext.js" type="javascript/js"></script> -->
 	</body>
 </html>
